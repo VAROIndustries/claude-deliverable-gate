@@ -101,7 +101,7 @@ Each check reports **PASS**, **FAIL** or **INCOMPLETE**. INCOMPLETE means "not c
 | Check | What it does |
 | --- | --- |
 | `paths` | Allowlist and exclusions. Traversal segments, absolute paths, `.git` segments, Windows reserved names, case collisions, files over 100 MiB. Symlinks (committed or in the worktree, including junctions): an escape from the source root FAILs, and internal links FAIL too because they're not published. Submodules. Unexpected file types. |
-| `secrets` | Runs **gitleaks** (`gitleaks dir`) on the snapshot with a pinned config. Candidate-supplied `.gitleaks.toml`, `.gitleaksignore` and `gitleaks:allow` comments are ignored, so the deliverable can't silence its own scan. A missing scanner or scanner error is INCOMPLETE. Only file, line and rule id are kept, never the match. |
+| `secrets` | Runs **gitleaks** (`gitleaks dir`) on the snapshot with a pinned config. A candidate-supplied `.gitleaks.toml` and `gitleaks:allow` comments are ignored (tested), and the ignore-file path is pinned to the gate's own scan folder, so the deliverable can't silence its own scan. A missing scanner or scanner error is INCOMPLETE. Only file, line and rule id are kept, never the match. |
 | `sensitive` | Built-in rules for correspondence (`.eml`/`.msg`/`.mbox`/`.pst`, `correspondence/`, email headers in text files), session logs and transcripts, local settings (`.env`, `*.local.json`, keys, `.npmrc`…; `.env.example` is allowed) and private sample data (`sample-data/`, `private/`, `*.db`, dumps). Also your patterns and path rules. Reports file:line and rule id only. |
 | `links` | Relative Markdown links, reference definitions and `<img>`/`<a>` targets must resolve **inside the candidate**. Catches missing targets, case mismatches (broken on case-sensitive hosts), links leaving the deliverable and links to excluded files. Code blocks are skipped. |
 | `provenance` | For each rule, the output must be in the candidate, and the build record (`{output:{sha256}, inputs:{path: sha256}}`, written by your build) must describe *this* output and the *current* inputs. A changed input is stale (FAIL). A missing record, or an input the record doesn't cover, is INCOMPLETE. **Timestamps are never used.** No rules configured is INCOMPLETE. |
@@ -165,8 +165,8 @@ node --test test.js
 All fixtures are synthetic and generated at runtime, including the secrets, which are assembled at runtime
 so this repository contains none. "Publishing" targets a temporary local bare repository with a stubbed `gh`.
 No test reaches GitHub. They cover: allowlist escapes, committed and worktree symlinks/junctions, case
-collisions, excluded correspondence, sensitive content not echoed, synthetic secrets with candidate-supplied
-ignore files, missing scanner, broken links, stale/missing/unrecorded generated documents, unsupported
+collisions, excluded correspondence, sensitive content not echoed, synthetic secrets with a candidate-supplied
+config and allow-comment, missing scanner, broken links, stale/missing/unrecorded generated documents, unsupported
 binaries, LFS pointers, history mode, sensitive history not reaching the destination, destination identity
 mismatch, destination change, candidate mutation after approval, a third-party push after approval, and the
 advisory hook. The gitleaks test is reported as skipped, not passed, when gitleaks isn't installed.
