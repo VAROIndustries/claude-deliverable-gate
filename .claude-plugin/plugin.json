@@ -1,0 +1,10 @@
+{
+  "name": "deliverable-gate",
+  "version": "0.1.0",
+  "description": "Report-first publication gate for client deliverables: builds an isolated snapshot from explicit allowlists, writes a hashed manifest, runs checks against that exact candidate (secrets via gitleaks, sensitive files, links, provenance, LFS, destination identity), and publishes to GitHub only with an approval bound to the candidate and destination.",
+  "author": { "name": "VARO Industries", "url": "https://github.com/VAROIndustries" },
+  "homepage": "https://github.com/VAROIndustries/claude-deliverable-gate",
+  "repository": "https://github.com/VAROIndustries/claude-deliverable-gate",
+  "license": "MIT",
+  "keywords": ["publishing", "deliverables", "manifest", "secrets", "approval", "gitleaks"]
+}

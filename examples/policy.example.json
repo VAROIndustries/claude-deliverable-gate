@@ -1,0 +1,53 @@
+{
+  "name": "example-portal-docs",
+  "audience": "Example Co. engineering team (external client)",
+  "mode": "snapshot",
+  "source": {
+    "repo": "C:/Work/example-portal",
+    "revision": "HEAD",
+    "base": "",
+    "worktreePaths": []
+  },
+  "include": [
+    "README.md",
+    "LICENSE",
+    "src/**",
+    "docs/**"
+  ],
+  "exclude": [
+    { "glob": "**/correspondence/**", "reason": "client correspondence" },
+    { "glob": "**/*.eml", "reason": "saved email" },
+    { "glob": "docs/internal/**", "reason": "internal notes, not for the client" },
+    { "glob": "**/sample-data/**", "reason": "private sample data" }
+  ],
+  "allowedExtensions": [".md", ".js", ".json", ".css", ".html", ".png", ".svg", ".pdf", ""],
+  "destination": {
+    "type": "github",
+    "owner": "example-client-org",
+    "repo": "portal-handover",
+    "branch": "main",
+    "visibility": "private",
+    "account": "your-publishing-account",
+    "commitIdentity": { "name": "Your Name", "email": "you@example.com" }
+  },
+  "requiredChecks": ["paths", "secrets", "sensitive", "links", "provenance", "binaries", "lfs", "destination", "history"],
+  "sensitive": {
+    "patterns": [
+      { "id": "client-codename", "regex": "\\bPROJECT[- ]ORCHID\\b" },
+      { "id": "internal-hostname", "regex": "\\b[a-z0-9-]+\\.corp\\.example\\.internal\\b" }
+    ],
+    "paths": [
+      { "id": "meeting-notes", "glob": "**/meeting-notes/**" }
+    ],
+    "allow": [
+      { "rule": "local-settings", "glob": "src/config/defaults.local.json", "reason": "shipped default config; contains no credentials (reviewed)" }
+    ]
+  },
+  "provenance": [
+    {
+      "output": "docs/handover-guide.pdf",
+      "inputs": ["docs/handover-guide.md"],
+      "record": "docs/handover-guide.pdf.provenance.json"
+    }
+  ]
+}

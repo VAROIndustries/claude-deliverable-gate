@@ -1,0 +1,13 @@
+{
+  "name": "deliverable-gate",
+  "description": "Deliverable Gate for Claude Code, from VARO Industries.",
+  "owner": { "name": "VARO Industries", "url": "https://github.com/VAROIndustries" },
+  "plugins": [
+    {
+      "name": "deliverable-gate",
+      "description": "Manifest, checks and candidate-bound approval before a client deliverable is published.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

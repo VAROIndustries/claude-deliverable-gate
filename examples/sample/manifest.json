@@ -1,0 +1,93 @@
+{
+  "deliverable": "example-portal-docs",
+  "candidateId": "20261018-161252-b142",
+  "createdAt": "2026-10-18T16:12:53.307Z",
+  "candidateHash": "0df3d6fe0611c85f43e0d7a399196fee1f491509c6021b53cf836dc8c870b38b",
+  "policyHash": "d886b70291527a74ae1436d1223b787f7332ae7b35e76a276744349758ec70b7",
+  "mode": "snapshot",
+  "audience": "Example Co. engineering team (external client)",
+  "destination": "github:example-client-org/portal-handover@main (private, as your-publishing-account)",
+  "source": {
+    "repo": "C:/Work/example-portal",
+    "base": "",
+    "revision": "d6720de5622c8216ab24ad235f61f1a7e83b1ea4",
+    "revisionSpec": "HEAD",
+    "dirty": true,
+    "changedPaths": 1,
+    "uncommittedChangesNotIncluded": 1,
+    "worktreePaths": []
+  },
+  "totals": {
+    "files": 7,
+    "bytes": 565,
+    "excluded": 3
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "size": 142,
+      "sha256": "db6ad2031fd34b9e012f7eb52b8e45801f83152ccae173aa11e4906a0362498f",
+      "mode": "100644",
+      "source": "HEAD"
+    },
+    {
+      "path": "docs/handover-guide.md",
+      "size": 27,
+      "sha256": "0554afceb960c1e8450902d93ac2fee4b907938d920087d97c9e9761847db281",
+      "mode": "100644",
+      "source": "HEAD"
+    },
+    {
+      "path": "docs/handover-guide.pdf",
+      "size": 14,
+      "sha256": "e73513ce04bf6a0b1970f91c8af2d2e324d6d8b9b70d4de1cce7ae8a957538ec",
+      "mode": "100644",
+      "source": "HEAD"
+    },
+    {
+      "path": "docs/handover-guide.pdf.provenance.json",
+      "size": 281,
+      "sha256": "fcb017cee8bb31ce9519ef2cb1046ab07909cec6c75bfebe03282159e94f99d1",
+      "mode": "100644",
+      "source": "HEAD"
+    },
+    {
+      "path": "docs/img/architecture.png",
+      "size": 12,
+      "sha256": "1b56b50ac4e976f488f128cabdcdffb2fc9331d6974bb9968131a415d14ade24",
+      "mode": "100644",
+      "source": "HEAD"
+    },
+    {
+      "path": "docs/setup.md",
+      "size": 58,
+      "sha256": "3dab8b0a50c4733f663cb3f8769293bacf984efb4c6af211c033ae8bec71f381",
+      "mode": "100644",
+      "source": "HEAD"
+    },
+    {
+      "path": "src/index.js",
+      "size": 31,
+      "sha256": "3f8fd2f21718d400c60ecaa79784dd7dcb9695b7e898fd364fa1275cf181e044",
+      "mode": "100644",
+      "source": "HEAD",
+      "worktreeDiffers": true
+    }
+  ],
+  "excluded": [
+    {
+      "path": "correspondence/2026-09-12-kickoff.eml",
+      "reason": "client correspondence",
+      "rule": "**/correspondence/**"
+    },
+    {
+      "path": "docs/internal/rates.md",
+      "reason": "internal notes, not for the client",
+      "rule": "docs/internal/**"
+    },
+    {
+      "path": "notes/meeting.txt",
+      "reason": "not in allowlist"
+    }
+  ]
+}
